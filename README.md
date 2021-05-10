@@ -7,7 +7,7 @@ Sneakers has too many options and you don't care about most of them.  Wouldn't y
 **NOTE: The following functions are still missing and need to be brought in:**
 1. **drop dead simple event broadcast**
 2. **yelling at you if you don't configure all the required settings**
-3. **where is the Rubocop you lazy implementer**
+3. **where Rubocop?** 
 
 ## What does this give me beyond basic Sneakers?
 
