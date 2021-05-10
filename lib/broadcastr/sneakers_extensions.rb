@@ -27,9 +27,9 @@ module Broadcastr
 end
 
 Sneakers::Queue.class_eval do
-  include Acapi::SneakersExtensions::QueueExtensions
+  include Broadcastr::SneakersExtensions::QueueExtensions
 end
 
 Sneakers::Worker.module_eval do
-  include Acapi::SneakersExtensions::WorkerExtensions
+  include Broadcastr::SneakersExtensions::WorkerExtensions
 end
