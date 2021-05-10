@@ -4,10 +4,16 @@ Simplified AMQP publish/subscribe with sensible defaults in your rails applicati
 
 Sneakers has too many options and you don't care about most of them.  Wouldn't you like some sensible defaults?
 
+**NOTE: The following functions are still missing and need to be brought in:**
+1. **drop dead simple event broadcast**
+2. **yelling at you if you don't configure all the required settings**
+3. **where is the Rubocop you lazy implementer**
+
 ## What does this give me beyond basic Sneakers?
 
 This gem adds a few features on top of the base Sneakers gem:
 1. Retry and error handling by default.
+2. Minimal dependencies.  What ruby version are you using?  Who cares?
 2. A sensible, default topology that lets consumers decide what messages they want.
 3. Easily configure then number of clients you want by type in a single place.
 4. Host all workers under a single process tree with shared memory, start it with a single line of code, and never mess with foreman again!
