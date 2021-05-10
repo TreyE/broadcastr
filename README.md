@@ -15,7 +15,7 @@ This gem adds a few features on top of the base Sneakers gem:
 1. Retry and error handling by default.
 2. Minimal dependencies.  What ruby version are you using?  Who cares?
 2. A sensible, default topology that lets consumers decide what messages they want.
-3. Easily configure then number of clients you want by type in a single place.
+3. Easily configure the number of clients you want by type in a single place.
 4. Host all workers under a single process tree with shared memory, start it with a single line of code, and never mess with foreman again!
 5. Most importantly: provides an easy way to broadcast events from within a working client.
 
