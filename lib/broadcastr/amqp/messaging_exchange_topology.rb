@@ -1,6 +1,6 @@
 require 'bunny'
 
-module Acapi
+module Broadcastr
   module Amqp
     class MessagingExchangeTopology
 
@@ -40,9 +40,9 @@ module Acapi
       protected
 
       def common_exchange_prefix
-        hbx_id = Rails.application.config.acapi.hbx_id
-        env_name = Rails.application.config.acapi.environment_name
-        "#{hbx_id}.#{env_name}.e."
+        site = Rails.application.config.broadcastr.site
+        env_name = Rails.application.config.broadcastr.environment_name
+        "#{site}.#{env_name}.e."
       end
 
       def event_fanout_exchange_name

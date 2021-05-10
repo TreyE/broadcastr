@@ -4,6 +4,7 @@ module Broadcastr
     attr_accessor :broker_uri
     attr_accessor :site
     attr_accessor :environment_name
+    attr_accessor :publish_amqp_events
   end
 end
 

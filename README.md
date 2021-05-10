@@ -5,7 +5,7 @@ Simplified AMQP publish/subscribe with sensible defaults in your rails applicati
 Sneakers has too many options and you don't care about most of them.  Wouldn't you like some sensible defaults?
 
 **NOTE: The following functions are still missing and need to be brought in:**
-1. **drop dead simple event broadcast**
+1. **Documentation for publishing**
 2. **yelling at you if you don't configure all the required settings**
 3. **where Rubocop?** 
 
