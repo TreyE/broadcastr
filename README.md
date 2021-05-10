@@ -2,19 +2,22 @@
 
 Simplified AMQP publish/subscribe with sensible defaults in your rails applications.
 
+Sneakers has too many options and you don't care about most of them.  Wouldn't you like some sensible defaults?
+
 ## What does this give me beyond basic Sneakers?
 
 This gem adds a few features on top of the base Sneakers gem:
 1. Retry and error handling by default.
-2. Easily configure then number of clients you want by type in a single place.
-3. Host all workers under a single process tree with shared memory.
-4. Most importantly: provides an easy way to broadcast events from within a working client.
+2. A sensible, default topology that lets consumers decide what messages they want.
+3. Easily configure then number of clients you want by type in a single place.
+4. Host all workers under a single process tree with shared memory, start it with a single line of code, and never mess with foreman again!
+5. Most importantly: provides an easy way to broadcast events from within a working client.
 
 ### Broadcasting Confirmed Events While You Work
 
 At any point in the work method of your subscriber, you may call `with_confirmed_channel`.  This will yield an AMQP channel with which to send events that will be automatically closed and confirmed at the end of the block:
 ```ruby
-with_confirmed_channel do
+with_confirmed_channel do |channel|
  channel.default.publish("my message", {:routing_key => "a queue name"})
 end
 ```
