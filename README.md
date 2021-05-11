@@ -5,9 +5,9 @@ Simplified AMQP publish/subscribe with sensible defaults in your rails applicati
 Sneakers has too many options and you don't care about most of them.  Wouldn't you like some sensible defaults?
 
 **NOTE: The following functions are still missing and need to be brought in:**
-1. **Documentation for publishing**
-2. **yelling at you if you don't configure all the required settings**
-3. **where Rubocop?** 
+1. **yelling at you if you don't configure all the required settings**
+2. **where Rubocop?** 
+3. **where github actions?**
 
 ## What does this give me beyond basic Sneakers?
 
@@ -39,6 +39,32 @@ Rails.application.configure do
   config.broadcastr.broker_uri = "amqp://guest:guest@localhost:5761/"
 end
 ```
+
+## Publishing Events
+
+You can publish an event like so:
+```ruby
+Broadcastr::Publisher.publish(event_name, payload, optional_headers)
+```
+
+The parameters are:
+1. `optional_headers` - an optional hash containing any additional information you want to include in the event, such as `:correlation_id`.
+2. `payload` - a string that will be sent as the body of the message.
+3. `event_name` - a string specifying the name of the message to broadcast.
+  1. It will be used as a routing key behind the scenes, and is the value you will be matching on when you configure a subscriber.
+  2. It follows a schema which helps log and identify the event to our logging systems - the format is described below.
+
+### Event Name Format
+
+Sending events uses a format that assists in automated logging and routing.  The format is:
+```
+<level>.<facility>.<event name>
+```
+
+These allowed values here are:
+1. `level` - the logging level, like syslog.  Can be one of `info`, `debug`, `notice`, `warning`, `error`, `critical`, `alert`, or `emergency`
+2. `facility` - the facility of the message, also like syslog.  The ones you care about are `events` and `application`.
+3. `event_name` - the remaining components of the name of your event.  Can be whatever you want, and can include other dots.
 
 ## Creating Event Subscribers
 
