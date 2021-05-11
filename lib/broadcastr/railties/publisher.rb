@@ -3,7 +3,7 @@ module Broadcastr
   # @private
   class PublisherRailtie < Rails::Railtie
 
-    initializer "publisher_railtie.configure_rails_initialization" do |app|
+    initializer "broadcastr.publisher_railtie.configure_rails_initialization" do |app|
       publish_setting = app.config.broadcastr.publish_amqp_events
       app_id = app.config.broadcastr.app_id
       broker_uri = app.config.broadcastr.broker_uri
