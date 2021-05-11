@@ -14,10 +14,11 @@ Sneakers has too many options and you don't care about most of them.  Wouldn't y
 This gem adds a few features on top of the base Sneakers gem:
 1. Retry and error handling by default.
 2. Minimal dependencies.  What ruby version are you using?  Who cares?
-2. A sensible, default topology that lets consumers decide what messages they want.
-3. Easily configure the number of clients you want by type in a single place.
-4. Host all workers under a single process tree with shared memory, start it with a single line of code, and never mess with foreman again!
-5. Most importantly: provides an easy way to broadcast events from within a working client.
+3. A sensible, default topology that lets consumers decide what messages they want.
+4. Drop-dead simple, confirmed event publishing.
+5. Easily configure the number of clients you want by type in a single place.
+6. Host all workers under a single process tree with shared memory, start it with a single line of code, and never mess with foreman again!
+7. Most importantly: provides an easy way to broadcast events from within a working client.
 
 ### Broadcasting Confirmed Events While You Work
 
@@ -51,8 +52,8 @@ The parameters are:
 1. `optional_headers` - an optional hash containing any additional information you want to include in the event, such as `:correlation_id`.
 2. `payload` - a string that will be sent as the body of the message.
 3. `event_name` - a string specifying the name of the message to broadcast.
-  1. It will be used as a routing key behind the scenes, and is the value you will be matching on when you configure a subscriber.
-  2. It follows a schema which helps log and identify the event to our logging systems - the format is described below.
+   1. It will be used as a routing key behind the scenes, and is the value you will be matching on when you configure a subscriber.
+   2. It follows a schema which helps log and identify the event to our logging systems - the format is described below.
 
 ### Event Name Format
 
