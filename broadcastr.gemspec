@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.license     = 'MIT'
 
-  s.add_dependency "activesupport", "> 4.2.0"
+  s.add_dependency "activesupport", "> 3.2.22.5"
   s.add_dependency "sneakers"
   s.add_dependency "serverengine"
 end
