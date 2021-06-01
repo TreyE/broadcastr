@@ -79,7 +79,7 @@ class MyWorkerClass
   # This is the first required method.  It needs to return a
   # WorkerSpecification.
   def self.worker_specification
-    Acapi::Amqp::WorkerSpecification.new(
+    Broadcastr::Amqp::WorkerSpecification.new(
       # A friendly name for your queue.  Not super important as all the
       # setup will be configured behind the scenes, only really matters that
       # it is unique.
