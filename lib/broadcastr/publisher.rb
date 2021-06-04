@@ -59,7 +59,6 @@ module Broadcastr
 
     def publish(event, payload, headers = {})
       open_connection_if_needed
-      STDERR.puts event
       msg = Broadcastr::Amqp::OutMessage.new(@app_id, event, payload, headers = {})
       chan = @connection.create_channel
       begin
