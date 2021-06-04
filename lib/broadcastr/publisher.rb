@@ -79,7 +79,7 @@ module Broadcastr
     end
 
     def open_connection_if_needed
-      if !@connection
+      unless @connection && @connection.connected?
         @connection = Bunny.new(Rails.application.config.broadcastr.broker_uri, :heartbeat => 5)
         @connection.start
       end
@@ -87,10 +87,11 @@ module Broadcastr
 
     def reconnect!
       disconnect!
+      open_connection_if_needed
     end
 
     def disconnect!
-      if @connection
+      if @connection && @connection.connected?
         begin
           @connection.close
         rescue Timeout::Error
